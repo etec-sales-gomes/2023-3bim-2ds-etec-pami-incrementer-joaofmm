@@ -1,31 +1,29 @@
-import './App.css'
-import { useState } from 'react'
-//import MyButton from './components/MyButton'
+import React, { useState } from "react";
+import {Button} from "./components/button"
+import './App.css';
 
+export default function App() {
+  const [count, setCount] = useState(0);
 
-function App() {
-    const [counter, setCounter] = useState(0);
- 
-    function handleClick(){
-        setCounter(counter + 1);
-    }
+  function increment() {
+    setCount(function (prevCount) {
+      return (prevCount += 1);
+    });
+  }
 
-    function MyButton({myCounter, myEvent}) {
-        <button onClick={myEvent}>
-            {myCounter}
-        </button>
-    }
+  function decrement() {
+    setCount(function (prevCount) {
+      return (prevCount -= 1); 
+      
+    });
+  }
 
-        return(
-            <div className='App'>
-                <MyButton myCounter={counter} myEvent={handleClick}/>
-                <MyButton myCounter={counter} myEvent={handleClick}/>
-                <MyButton myCounter={counter} myEvent={handleClick}/>
-                <MyButton myCounter={counter} myEvent={handleClick}/>
+  return (
+    <div class="App">
+      <Button onclick= {increment} text='+'></Button>
+      <h1>{count}</h1>
+      <Button onclick= {decrement} text='-'></Button>
 
-            </div>
-        )
-    }
-
-
-export default App
+    </div>
+  );
+}

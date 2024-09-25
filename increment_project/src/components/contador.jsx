@@ -1,12 +1,6 @@
-import React, { useState } from "react";
+export function Counter(props) {
 
-export function Count (props){
-    const [count, setCount] = useState(0);
-
-    return (
-        <>
-        <h1 count={count}></h1>
-        
-        </>
+    return(
+    <input type="text" className="form-control" value={props.count} onChange={props.handler}/>
     )
 }

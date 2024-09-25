@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {Button} from "./components/button"
 import './App.css';
+import { Counter } from "./components/contador";
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -17,11 +18,15 @@ export default function App() {
       
     });
   }
+  let handleChange=(e) =>{
+    setCount(e.target.value)
+
+  }
 
   return (
     <div class="App">
       <Button onclick= {increment} text='+'></Button>
-      <h1>{count}</h1>
+      <Counter count={count} handle={handleChange}></Counter>
       <Button onclick= {decrement} text='-'></Button>
 
     </div>
